@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: `linear-gradient(${direction}, ${colorOne}, ${colorTwo})` }}>
-      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50 max-w-2xl">
+      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50 max-w-xl">
         <h1 className="text-3xl font-bold mb-4">Gerador de Gradiente</h1>
         <div className="flex justify-center gap-4 mb-4">
           <input type="color" value={colorOne} onChange={(e) => setColorOne(e.target.value)} className="w-16 h-16 cursor-pointer border-none" />
