@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { ArrowRight, ArrowLeft, ArrowUp, ArrowDown, ArrowUpRight, ArrowDownRight, ArrowUpLeft, ArrowDownLeft } from 'lucide-react';
 
 export default function Home() {
-  const [colorOne, setColorOne] = useState('#7986cb');
-  const [colorTwo, setColorTwo] = useState('#1a237e');
+  const [colorOne, setColorOne] = useState('#030303');
+  const [colorTwo, setColorTwo] = useState('#22bfbc');
   const [direction, setDirection] = useState('to right');
 
   const copyToClipboard = () => {
@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: `linear-gradient(${direction}, ${colorOne}, ${colorTwo})` }}>
-      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50 max-w-2xl">
+      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50 max-w-xl">
         <h1 className="text-3xl font-bold mb-4">Gerador de Gradiente</h1>
         <div className="flex justify-center gap-4 mb-4">
           <input type="color" value={colorOne} onChange={(e) => setColorOne(e.target.value)} className="w-16 h-16 cursor-pointer border-none" />
@@ -42,7 +42,7 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div className="bg-white text-gray-800 p-3 rounded shadow">
+        <div className="bg-white text-gray-800 p-3 rounded shadow flex-wrap">
           <h2 className="text-lg font-semibold">Código CSS:</h2>
           <code className="break-words">{`background-image: linear-gradient(${direction}, ${colorOne}, ${colorTwo});`}</code>
         </div>
