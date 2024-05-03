@@ -26,16 +26,16 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center" style={{ backgroundImage: `linear-gradient(${direction}, ${colorOne}, ${colorTwo})` }}>
-      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50">
+      <div className="text-center text-white p-6 rounded-lg shadow-lg bg-black bg-opacity-50 max-w-2xl">
         <h1 className="text-3xl font-bold mb-4">Gerador de Gradiente</h1>
         <div className="flex justify-center gap-4 mb-4">
           <input type="color" value={colorOne} onChange={(e) => setColorOne(e.target.value)} className="w-16 h-16 cursor-pointer border-none" />
           <input type="color" value={colorTwo} onChange={(e) => setColorTwo(e.target.value)} className="w-16 h-16 cursor-pointer border-none" />
         </div>
-        <div className="flex space-x-2 justify-center mb-4">
+        <div className="grid grid-cols-2 sm:grid-cols-8 gap-4 mb-4">
           {directions.map(({ dir, icon }) => (
             <button key={dir}
-              className={`py-2 px-2 rounded ${direction === dir ? 'bg-blue-500 text-white' : 'bg-white text-gray-800'}`}
+              className={`py-2 px-2 rounded transition duration-500 ease-in-out flex justify-center ${direction === dir ? 'text-white border md:scale-110' : 'bg-white text-gray-800 shadow-md'}`}
               onClick={() => setDirection(dir)}
               title={dir.replace('to ', '')}>
               {icon}
@@ -45,10 +45,11 @@ export default function Home() {
         <div className="bg-white text-gray-800 p-3 rounded shadow">
           <h2 className="text-lg font-semibold">Código CSS:</h2>
           <code className="break-words">{`background-image: linear-gradient(${direction}, ${colorOne}, ${colorTwo});`}</code>
-          <button onClick={copyToClipboard} className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
-            Copiar
-          </button>
         </div>
+        <button onClick={copyToClipboard} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold text-lg py-1 px-5 rounded transition all ease duration-500">
+          Copiar
+        </button>
+        <p className='mt-4 font-semibold'>Desenvolvido por <span className='text-blue-500'>Victor Junqueira</span></p>
       </div>
     </div>
   );
